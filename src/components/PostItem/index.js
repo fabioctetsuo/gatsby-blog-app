@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   PostItemLink,
@@ -10,22 +11,35 @@ import {
   PostItemDescription,
 } from './styles';
 
-const PostItem = () => (
-  <PostItemLink to="/slug/">
+const PostItem = ({
+  slug,
+  background,
+  category,
+  date,
+  timeToRead,
+  title,
+  description,
+}) => (
+  <PostItemLink to={slug}>
     <PostItemWrapper>
-      <PostItemTag background="#47650b">Misc</PostItemTag>
+      <PostItemTag background={background}>{category}</PostItemTag>
       <PostItemInfo>
-        <PostItemDate>30 de Julho de 2019 • 4 min de leitura</PostItemDate>
-        <PostItemTitle>
-          Diga não ao Medium: tenha sua própria plataforma
-        </PostItemTitle>
-        <PostItemDescription>
-          Algumas razões para você ter sua própria plataforma ao invés de
-          soluções como o Medium.
-        </PostItemDescription>
+        <PostItemDate>{date} • {timeToRead} min de leitura</PostItemDate>
+        <PostItemTitle>{title}</PostItemTitle>
+        <PostItemDescription>{description}</PostItemDescription>
       </PostItemInfo>
     </PostItemWrapper>
   </PostItemLink>
 );
+
+PostItem.propTypes = {
+  slug: PropTypes.string.isRequired,
+  background: PropTypes.string,
+  category: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  timeToRead: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+};
 
 export default PostItem;
