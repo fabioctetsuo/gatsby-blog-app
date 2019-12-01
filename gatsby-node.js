@@ -5,6 +5,7 @@
  */
 
 // To add slug name to each post created by the markdown files
+const path = require('path');
 
 const { createFilePath } = require(`gatsby-source-filesystem`);
 
@@ -26,4 +27,36 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       value: `/${slug.slice(12)}`,
     });
   }
+};
+
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions;
+
+  return graphql(`
+    query GetPostSlugs {
+      allMarkdownRemark {
+        edges {
+          node {
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    }
+  `).then(({
+    data: {
+      allMarkdownRemark: {
+        edges: posts,
+      }
+    }
+  }) => {
+    posts.forEach(({ node: { fields: { slug } } }) => {
+      createPage({
+        path: slug,
+        component: path.resolve('./src/templates/blog-post.js'),
+        context: { slug },
+      });
+    });
+  })
 };
