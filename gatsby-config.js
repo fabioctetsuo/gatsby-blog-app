@@ -6,6 +6,7 @@ module.exports = {
     position: `Front-end engineer`,
   },
   plugins: [
+    `gatsby-plugin-styled-components`,
     `gatsby-plugin-react-helmet`,
     // needs to be the first one in the plugins config to work with gatsby-image
     {
@@ -34,32 +35,25 @@ module.exports = {
       options: {
         plugins: [
           {
-            resolve: `gatsby-remark-images`,
+            resolve: "gatsby-remark-relative-images",
             options: {
-              name: `uploads`,
+              name: "uploads",
             },
           },
           {
-            resolve: `gatsby-transformer-remark`,
+            resolve: "gatsby-remark-images",
             options: {
-              plugins: [
-                {
-                  resolve: `gatsby-remark-images`,
-                  options: {
-                    maxWidth: 960,
-                    linkImagesToOriginal: false,
-                  },
-                },
-              ],
+              maxWidth: 960,
+              linkImagesToOriginal: false,
             },
-          }, 
+          },
           `gatsby-remark-lazy-load`,
-        ]
-      }
+          `gatsby-remark-prismjs`,
+        ],
+      },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
-    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -70,21 +64,6 @@ module.exports = {
         theme_color: `#663399`,
         display: `minimal-ui`,
         icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        // CommonMark mode (default: true)
-        commonmark: true,
-        // Footnotes mode (default: true)
-        footnotes: true,
-        // Pedantic mode (default: true)
-        pedantic: true,
-        // GitHub Flavored Markdown mode (default: true)
-        gfm: true,
-        // Plugins configs
-        plugins: [],
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
