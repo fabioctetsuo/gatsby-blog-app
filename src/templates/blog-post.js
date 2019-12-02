@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
+import RecommendedPosts from '../components/RecommendedPosts';
 import SEO from '../components/seo';
 import {
   PostHeader,
@@ -11,7 +12,7 @@ import {
   MainContent,
 } from '../components/Post/styles';
 
-const BlogPost = ({ data }) => {
+const BlogPost = ({ data, pageContext }) => {
   const {
     markdownRemark: {
       timeToRead,
@@ -25,6 +26,8 @@ const BlogPost = ({ data }) => {
       },
     }
   } = data;
+  const { next, previous } = pageContext;
+
   return (
     <Layout>
       <SEO title={title} />
@@ -38,6 +41,7 @@ const BlogPost = ({ data }) => {
       <MainContent>
         <div dangerouslySetInnerHTML={{ __html: html }}></div>
       </MainContent>
+      <RecommendedPosts next={next} previous={previous}/>
     </Layout>
   );
 };
