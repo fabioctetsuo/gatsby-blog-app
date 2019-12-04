@@ -19,7 +19,7 @@ const BlogList = (props) => {
       <SEO title="Home" />
       {posts && posts.map(({
         node: {
-          frontmatter: { category, date, title, description },
+          frontmatter: { category, date, title, description, background },
           timeToRead,
           fields: { slug },
         },
@@ -31,6 +31,7 @@ const BlogList = (props) => {
           timeToRead={timeToRead}
           title={title}
           description={description}
+          background={background}
         />
         ))}
       <Pagination
