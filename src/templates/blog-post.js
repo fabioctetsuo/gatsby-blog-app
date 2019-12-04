@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 
 import Layout from '../components/Layout';
 import RecommendedPosts from '../components/RecommendedPosts';
+import Comments from '../components/Comments';
 import SEO from '../components/seo';
 import {
   PostHeader,
@@ -17,10 +18,11 @@ const BlogPost = ({ data, pageContext }) => {
     markdownRemark: {
       timeToRead,
       html,
+      fields: {
+        slug
+      },
       frontmatter: {
         title,
-        // background,
-        // category,
         date,
         description,
       },
@@ -42,6 +44,7 @@ const BlogPost = ({ data, pageContext }) => {
         <div dangerouslySetInnerHTML={{ __html: html }}></div>
       </MainContent>
       <RecommendedPosts next={next} previous={previous}/>
+      <Comments url={slug} title={title} />
     </Layout>
   );
 };
@@ -51,6 +54,9 @@ export const query = graphql`
     markdownRemark(fields: {slug: {eq: $slug}}) {
       html
       timeToRead
+      fields {
+        slug
+      }
       frontmatter {
         title
         background
