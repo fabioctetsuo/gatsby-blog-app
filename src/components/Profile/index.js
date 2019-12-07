@@ -25,7 +25,12 @@ const Profile = () => {
 
   return (
     <ProfileWrapper>
-      <ProfileLink>
+      <ProfileLink
+        cover
+        direction="left"
+        duration={0.6}
+        bg="#16202c"
+      >
         <Avatar />
         <ProfileAuthor>
           {siteMetadata.title}

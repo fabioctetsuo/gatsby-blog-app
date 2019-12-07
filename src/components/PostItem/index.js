@@ -20,7 +20,13 @@ const PostItem = ({
   title,
   description,
 }) => (
-  <PostItemLink to={slug}>
+  <PostItemLink
+    to={slug}
+    cover
+    direction="left"
+    duration={0.6}
+    bg="#16202c"
+  >
     <PostItemWrapper>
       <PostItemTag background={background}>{category}</PostItemTag>
       <PostItemInfo>

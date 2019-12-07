@@ -14,7 +14,14 @@ const MenuLinks = () => (
     <MenuLinksList>
       {links.map((link, i) => (
         <MenuLinksItem key={i}>
-          <MenuLinksLink to={link.url} activeClassName='active'>
+          <MenuLinksLink
+            cover
+            direction="left"
+            duration={0.5}
+            bg="#16202c"
+            to={link.url}
+            activeClassName='active'
+          >
             {link.label}
           </MenuLinksLink>
         </MenuLinksItem>
