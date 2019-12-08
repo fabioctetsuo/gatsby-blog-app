@@ -35,7 +35,7 @@ const queries = [
   {
     query: postsQuery,
     transformer: ({ data }) => flatten(data.posts.edges), // optional
-    indexName: 'Posts', // overrides main index name, optional
+    indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME, // overrides main index name, optional
     settings: {
       // busca mais rapida, separando de 20 em 20
       attributesToSnippet: ['excerpt:20']
