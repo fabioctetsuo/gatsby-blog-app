@@ -25,6 +25,7 @@ const BlogPost = ({ data, pageContext }) => {
         title,
         date,
         description,
+        image,
       },
     }
   } = data;
@@ -32,7 +33,11 @@ const BlogPost = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO
+        title={title}
+        description={description}
+        image={image}
+      />
         <PostHeader>
           <PostDate>
           {date} • {timeToRead} min de leitura
@@ -63,6 +68,7 @@ export const query = graphql`
         category
         date(formatString: "DD [de] MMMM [de] YYYY")
         description
+        image
       }
     }
   }
