@@ -7,7 +7,7 @@ module.exports = {
     description: `Membro da Gympass, escreve sobre o mundo do front-end e outras coisas legais!`,
     author: `@fabioctetsuo`,
     position: `Front-end engineer`,
-    siteUrl: `https://johndoe.com.br`,
+    siteUrl: `https://johndoe-gatsby.netlify.com/`,
   },
   plugins: [
     `gatsby-plugin-transition-link`,
