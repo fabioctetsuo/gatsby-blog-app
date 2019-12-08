@@ -7,6 +7,7 @@ import { LightBulb as Light } from "styled-icons/octicons/LightBulb"
 import { Grid } from "styled-icons/boxicons-solid/Grid"
 import { ThList as List } from "styled-icons/typicons/ThList"
 
+import { getBackgroundColor } from "../../utils/getBackgroundColor";
 import {
   MenuBarWrapper,
   MenuBarGroup,
@@ -39,7 +40,7 @@ const MenuBar = () => {
           cover
           direction="right"
           duration={0.6}
-          bg="#16202c"
+          bg={getBackgroundColor()}
         >
           <MenuBarItem>
             <Home />
@@ -50,7 +51,7 @@ const MenuBar = () => {
           cover
           direction="right"
           duration={0.6}
-          bg="#16202c"
+          bg={getBackgroundColor()}
         >
           <MenuBarItem>
             <Search />

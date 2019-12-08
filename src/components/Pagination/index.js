@@ -2,6 +2,7 @@ import React from "react"
 import propTypes from "prop-types"
 import Link from "gatsby-plugin-transition-link/AniLink"
 
+import { getBackgroundColor } from '../../utils/getBackgroundColor';
 import { PaginationWrapper } from "./styles"
 
 const Pagination = ({
@@ -19,7 +20,7 @@ const Pagination = ({
         cover
         direction="left"
         duration={0.6}
-        bg="#16202c"
+        bg={getBackgroundColor()}
       >
         ← página anterior
       </Link>
@@ -33,7 +34,7 @@ const Pagination = ({
         cover
         direction="right"
         duration={0.6}
-        bg="#16202c"
+        bg={getBackgroundColor()}
       >
         proxima página →
       </Link>

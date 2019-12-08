@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStaticQuery, graphql } from "gatsby";
 
+import { getBackgroundColor } from '../../utils/getBackgroundColor';
 import Avatar from '../Avatar';
 import {
   ProfileWrapper,
@@ -29,7 +30,7 @@ const Profile = () => {
         cover
         direction="left"
         duration={0.6}
-        bg="#16202c"
+        bg={getBackgroundColor()}
       >
         <Avatar />
         <ProfileAuthor>
