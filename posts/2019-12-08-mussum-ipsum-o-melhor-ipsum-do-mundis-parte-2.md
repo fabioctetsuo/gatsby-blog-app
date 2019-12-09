@@ -3,8 +3,8 @@ title: Mussum Ipsum o melhor ipsum do mundis parte 2
 description: Parte 2 do melhor post sobre o mussum do mundis
 date: '2019-12-08 08:02:30'
 image: /assets/img/norway.jpg
-category: others
-background: '#7AAB13'
+category: gatsby
+background: '#B31917'
 ---
 ## Mussum Ipsum o melhor ipsum do mundis
 
